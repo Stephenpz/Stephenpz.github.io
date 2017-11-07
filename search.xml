@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Linux命令行登陆校园网网关]]></title>
+    <url>%2F2017%2F11%2F07%2Flinux_loginwg%2F</url>
+    <content type="text"><![CDATA[最近应老师要求需要搭建一个大数据集群，由于物理设备条件不足，只好转战虚拟服务器。大数据平台供应商的产品规定可用的操作系统只有小红帽和centos（对于一个linux小白来说欲哭无泪）。 大家都知道，在学校里使用校园网就必须登录学校的网关，所以在学长的建议下我准备使用Python脚本进行登录，结果发现centos自带的Python版本是2.7，无法使用脚本登录。想着yum install装下Python3，拍脑袋瓜一想不能上网怎么在线安装呢…= =、于是我从官网上下载了安装包，用Filezilla上传到服务器中，再一次尝试Python3的安装（此处省略许多安装步骤…网上都能查到），结果安装过程中提示没有gcc环境…！此时，一旁的学弟说了句CURL命令好像可以，于是便开始查询该命令的用法并进行尝试。 在一番捣鼓之后将该方法总结如下（此方法试用于你没有Python3环境、不会或者懒得写Python脚本）：1.在一台能上网的电脑中用Chrome浏览器打开自己学校的网关登录页，右键打开“检查”，填写用户名密码之后登陆。2.在检查栏的Network中找到login 3.在右边的Headers中拉到最下面找到Form Data 4.点击view source，并复制其中的记录（记为xxx） 5.在命令行界面使用curl命令模拟表单post提交（curl的更多用法请自行百度），敲入： 1curl -d &quot;xxx&quot; 自己学校的网关登录页url 出现下图类似的结果就可以了 当然还有其他方式登录校园网网关比如Python脚本、W3M、Elink等，网上应该都有操作过程，如果我闲的话会再做个整理。]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>First blog</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F10%2F30%2Fhelloevery%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>Begin</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Testing</tag>
+      </tags>
+  </entry>
+</search>

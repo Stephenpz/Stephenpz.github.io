@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://Stephenpz.github.io/"/>
-  <updated>2017-10-30T12:42:45.451Z</updated>
+  <updated>2017-11-07T12:38:24.099Z</updated>
   <id>http://Stephenpz.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux命令行登陆校园网网关</title>
+    <link href="http://Stephenpz.github.io/2017/11/07/linux_loginwg/"/>
+    <id>http://Stephenpz.github.io/2017/11/07/linux_loginwg/</id>
+    <published>2017-11-07T12:22:56.123Z</published>
+    <updated>2017-11-07T12:38:24.099Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近应老师要求需要搭建一个大数据集群，由于物理设备条件不足，只好转战虚拟服务器。大数据平台供应商的产品规定可用的操作系统只有小红帽和centos（对于一个linux小白来说欲哭无泪）。</p><p>大家都知道，在学校里使用校园网就必须登录学校的网关，所以在学长的建议下我准备使用Python脚本进行登录，结果发现centos自带的Python版本是2.7，无法使用脚本登录。想着yum install装下Python3，拍脑袋瓜一想不能上网怎么在线安装呢…= =、于是我从官网上下载了安装包，用Filezilla上传到服务器中，再一次尝试Python3的安装（此处省略许多安装步骤…网上都能查到），结果安装过程中提示没有gcc环境…！此时，一旁的学弟说了句CURL命令好像可以，于是便开始查询该命令的用法并进行尝试。   </p><p>在一番捣鼓之后将该方法总结如下（此方法试用于你没有Python3环境、不会或者懒得写Python脚本）：<br>1.在一台能上网的电脑中用Chrome浏览器打开自己学校的网关登录页，右键打开“检查”，填写用户名密码之后登陆。<br>2.在检查栏的Network中找到login</p><p><img src="http://oz1rjtfcm.bkt.clouddn.com/1-Network.png" alt="1-Network"></p><p><img src="http://oz1rjtfcm.bkt.clouddn.com/1-login.png" alt="1-login"></p><p>3.在右边的Headers中拉到最下面找到Form Data</p><p><img src="http://oz1rjtfcm.bkt.clouddn.com/1-header.png" alt="1-header"></p><p>4.点击view source，并复制其中的记录（记为xxx）</p><p><img src="http://oz1rjtfcm.bkt.clouddn.com/1-viewsource.png" alt="1-viewsource"></p><p>5.在命令行界面使用curl命令模拟表单post提交（curl的更多用法请自行百度），敲入：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -d &quot;xxx&quot; 自己学校的网关登录页url</div></pre></td></tr></table></figure><p>出现下图类似的结果就可以了</p><p><img src="http://oz1rjtfcm.bkt.clouddn.com/1-pingresult.png" alt="1-pingresult"></p><h3 id="当然还有其他方式登录校园网网关"><a href="#当然还有其他方式登录校园网网关" class="headerlink" title="当然还有其他方式登录校园网网关"></a>当然还有其他方式登录校园网网关</h3><p>比如Python脚本、W3M、Elink等，网上应该都有操作过程，如果我闲的话会再做个整理。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近应老师要求需要搭建一个大数据集群，由于物理设备条件不足，只好转战虚拟服务器。大数据平台供应商的产品规定可用的操作系统只有小红帽和centos（对于一个linux小白来说欲哭无泪）。&lt;/p&gt;
+&lt;p&gt;大家都知道，在学校里使用校园网就必须登录学校的网关，所以在学长的建议下我准
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://Stephenpz.github.io/categories/Linux/"/>
+    
+      <category term="编程" scheme="http://Stephenpz.github.io/categories/Linux/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="First blog" scheme="http://Stephenpz.github.io/tags/First-blog/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://Stephenpz.github.io/2017/10/30/helloevery/"/>
     <id>http://Stephenpz.github.io/2017/10/30/helloevery/</id>
     <published>2017-10-29T16:00:00.000Z</published>
-    <updated>2017-10-30T12:42:45.451Z</updated>
+    <updated>2017-11-07T12:36:04.765Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
     
@@ -40,6 +68,8 @@
     
     
       <category term="Hexo" scheme="http://Stephenpz.github.io/tags/Hexo/"/>
+    
+      <category term="Testing" scheme="http://Stephenpz.github.io/tags/Testing/"/>
     
   </entry>
   
